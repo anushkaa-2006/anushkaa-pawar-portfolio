@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
-const NAV_LINKS = ["Home", "About", "Skills", "Projects", "Achievements", "Contact"];
+const NAV_LINKS = ["About", "Education", "Skills", "Projects", "Achievements", "Contact"];
 
 const TYPEWRITER_TEXTS = [
   "Web Developer",
@@ -15,7 +15,7 @@ const SKILLS = {
   "Programming Languages": ["Python","Java","C", "JavaScript"],
   Frontend: ["React.js", "Next.js","HTML", "CSS"],
   Backend: ["Node.js","PHP"],
-  // Database: ["MySQL", "Supabase"],
+  Database: ["MySQL", "Supabase"],
   // "Machine Learning": ["PyTorch", "TensorFlow", "Scikit-learn", "OpenCV", "HuggingFace"],
   Tools: ["Git", "GitHub", "VS Code"],
 };
@@ -261,7 +261,7 @@ function Navbar({ activeSection }) {
       transition: "all 0.3s ease",
     }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 }}>
-        <span style={{ fontWeight: 700, fontSize: 20, background: "linear-gradient(135deg,#3B82F6,#8B5CF6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+        <span style={{ fontWeight: 700, fontSize: "125%", background: "linear-gradient(135deg,#3B82F6,#8B5CF6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
           AP.
         </span>
 
@@ -274,7 +274,7 @@ function Navbar({ activeSection }) {
                 style={{
                   background: "none", border: "none", cursor: "pointer",
                   color: activeSection === link.toLowerCase() ? "#3B82F6" : "rgba(255,255,255,0.65)",
-                  fontSize: 14, fontWeight: 500, letterSpacing: "0.02em",
+                  fontSize: "87.5%", fontWeight: 500, letterSpacing: "0.02em",
                   transition: "color 0.2s", padding: "4px 0",
                   borderBottom: activeSection === link.toLowerCase() ? "1px solid #3B82F6" : "1px solid transparent",
                 }}
@@ -289,7 +289,7 @@ function Navbar({ activeSection }) {
         <button
           onClick={() => setMenuOpen((o) => !o)}
           className="hamburger"
-          style={{ display: "none", background: "none", border: "none", cursor: "pointer", color: "#fff", fontSize: 22 }}
+          style={{ display: "none", background: "none", border: "none", cursor: "pointer", color: "#fff", fontSize: "137.5%" }}
           aria-label="Toggle menu"
         >
           {menuOpen ? "✕" : "☰"}
@@ -309,7 +309,7 @@ function Navbar({ activeSection }) {
               style={{
                 display: "block", width: "100%", textAlign: "left",
                 background: "none", border: "none", cursor: "pointer",
-                color: "rgba(255,255,255,0.8)", fontSize: 16, padding: "10px 0",
+                color: "rgba(255,255,255,0.8)", fontSize: "100%", padding: "10px 0",
               }}
             >
               {link}
@@ -328,20 +328,20 @@ function Navbar({ activeSection }) {
   );
 }
 
-// ─── HOME ────────────────────────────────────────────────────────────────────
+// ─── ABOUT HERO ────────────────────────────────────────────────────────────
 
-function Home() {
+function AboutHero() {
   const typed = useTypewriter(TYPEWRITER_TEXTS);
   const TECH_ICONS = ["⚛️","🐍","🤖","🎯","🔥","💡","🛠️","🌐"];
 
   return (
-    <section id="home" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "80px 2rem 4rem", maxWidth: 1100, margin: "0 auto" }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "3rem", width: "100%", flexWrap: "wrap" }}>
+    <section id="about" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "20px 1.25rem 2rem", maxWidth: 1300, margin: "0 auto" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "1rem", width: "100%", flexWrap: "wrap" }}>
 
         {/* Left */}
         <div style={{ flex: "1 1 340px", minWidth: 280 }}>
           <FadeUp delay={0}>
-            <p style={{ color: "#3B82F6", fontSize: 14, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 8 }}>
+            <p style={{ color: "#3B82F6", fontSize: "87.5%", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 5 }}>
               👋 Hi, I'm
             </p>
           </FadeUp>
@@ -356,19 +356,25 @@ function Home() {
             </h1>
           </FadeUp>
           <FadeUp delay={0.2}>
-            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 16, marginBottom: "1rem" }}>
+            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "100%", marginBottom: "1rem" }}>
               Computer Engineering Student
             </p>
           </FadeUp>
           <FadeUp delay={0.3}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, minHeight: 40, marginBottom: "1.5rem" }}>
               <span style={{ fontSize: "clamp(1.1rem,3vw,1.5rem)", fontWeight: 600, color: "#8B5CF6" }}>{typed}</span>
-              <span style={{ fontSize: "1.5rem", color: "#3B82F6", animation: "blink 1s step-end infinite" }}>|</span>
+              <span style={{ fontSize: "clamp(1.2rem,1.7vw,1.5rem)", color: "#3B82F6", animation: "blink 1s step-end infinite" }}>|</span>
             </div>
           </FadeUp>
           <FadeUp delay={0.4}>
-            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 15, lineHeight: 1.7, marginBottom: "2rem", maxWidth: 480 }}>
-              Passionate about building intelligent systems and intuitive products. I combine deep learning research with full-stack engineering to create solutions that matter.
+            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "93.75%", lineHeight: 1.7, marginBottom: "1rem", maxWidth: 840 }}>
+             Driven by curiosity to build meaningful AI and Machine Learning solutions that solve real-world problems.
+            </p>
+            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "93.75%", lineHeight: 1.7, marginBottom: "1rem", maxWidth: 840 }}>
+             I am a Computer Engineering student with a strong interest in Artificial Intelligence, Machine Learning, and Software Development. I have worked on projects involving web applications, databases, and intelligent systems, with a focus on designing scalable, efficient, and user-centric software solutions.
+            </p>
+            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "93.75%", lineHeight: 1.7, marginBottom: "1rem", maxWidth: 840 }}>
+             Through academic projects, hackathons, and continuous learning, I have strengthened my problem-solving abilities and technical skills while working with modern development technologies. I am committed to creating software that addresses real-world challenges and contributes meaningful value through innovation and technology.            
             </p>
           </FadeUp>
           <FadeUp delay={0.5}>
@@ -381,8 +387,8 @@ function Home() {
               </GlowBtn>
             </div>
             <div style={{ display: "flex", gap: "1rem" }}>
-              {[["GitHub","#","💻"],["LinkedIn","#","💼"],["Email","mailto:#","✉️"]].map(([label,href,icon])=>(
-                <a key={label} href={href} style={{ display:"flex",alignItems:"center",gap:6, color:"rgba(255,255,255,0.5)", textDecoration:"none", fontSize:13, transition:"color 0.2s" }}
+              {[["GitHub","https://github.com/anushkaa-2006","💻"],["LinkedIn","http://linkedin.com/in/anushkaa3006/","💼"],["Email","mailto:anushkaapawar2006@gmail.com","✉️"]].map(([label,href,icon])=>(
+                <a key={label} href={href} style={{ display:"flex",alignItems:"center",gap:6, color:"rgba(255,255,255,0.5)", textDecoration:"none", fontSize:"81.25%", transition:"color 0.2s" }}
                   onMouseEnter={e=>e.currentTarget.style.color="#3B82F6"} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,0.5)"}>
                   {icon} {label}
                 </a>
@@ -393,7 +399,7 @@ function Home() {
 
         {/* Right – avatar */}
         <FadeUp delay={0.3} style={{ flex: "0 0 auto" }}>
-          <div style={{ position: "relative", width: 300, height: 300 }}>
+          <div style={{ position: "relative", width: 350, height: 350 }}>
             {/* Spinning gradient ring */}
             <div style={{
               position: "absolute", inset: -6, borderRadius: "50%",
@@ -408,22 +414,22 @@ function Home() {
               position: "absolute", inset: 6, borderRadius: "50%",
               background: "linear-gradient(135deg,#1e3a5f,#2d1b69)",
               display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: 80,
+              fontSize: "clamp(3rem,8vw,5rem)",
             }}>
               👩‍💻
             </div>
             {/* Floating icons */}
             {TECH_ICONS.map((icon, i) => {
               const angle = (i / TECH_ICONS.length) * 2 * Math.PI;
-              const r = 170;
-              const x = Math.cos(angle) * r + 150 - 20;
-              const y = Math.sin(angle) * r + 150 - 20;
+              const r = 195;
+              const x = Math.cos(angle) * r + 170 - 20;
+              const y = Math.sin(angle) * r + 170 - 20;
               return (
                 <div key={i} style={{
-                  position: "absolute", left: x, top: y, width: 40, height: 40,
+                  position: "absolute", left: x, top: y, width: 50, height: 50,
                   borderRadius: "50%", background: "rgba(255,255,255,0.05)",
                   border: "1px solid rgba(255,255,255,0.1)",
-                  display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18,
+                  display: "flex", alignItems: "center", justifyContent: "center", fontSize: "clamp(0.95rem,1.2vw,1.1rem)",
                   animation: `float ${2.5 + i * 0.3}s ease-in-out infinite`,
                   animationDelay: `${i * 0.2}s`,
                 }}>
@@ -444,7 +450,7 @@ function GlowBtn({ children, onClick, secondary, href }) {
   const [hov, setHov] = useState(false);
   const style = {
     display: "inline-flex", alignItems: "center", gap: 6,
-    padding: "10px 22px", borderRadius: 10, fontWeight: 600, fontSize: 14,
+    padding: "10px 22px", borderRadius: 10, fontWeight: 600, fontSize: "87.5%",
     cursor: "pointer", textDecoration: "none", transition: "all 0.25s",
     border: secondary ? "1px solid rgba(255,255,255,0.15)" : "none",
     background: secondary
@@ -466,7 +472,7 @@ function SectionHeading({ tag, title }) {
   return (
     <FadeUp>
       <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-        <p style={{ color: "#3B82F6", fontSize: 12, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 10 }}>{tag}</p>
+        <p style={{ color: "#3B82F6", fontSize: "75%", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 10 }}>{tag}</p>
         <h2 style={{ fontSize: "clamp(1.8rem,4vw,2.6rem)", fontWeight: 800, color: "#fff", marginBottom: 12 }}>{title}</h2>
         <div style={{ width: 60, height: 3, background: "linear-gradient(90deg,#3B82F6,#8B5CF6)", borderRadius: 2, margin: "0 auto" }} />
       </div>
@@ -477,62 +483,36 @@ function SectionHeading({ tag, title }) {
 // ─── ABOUT ───────────────────────────────────────────────────────────────────
 
 function About() {
+  return null;
+}
+
+function Education() {
   const timeline = [
-    { year: "2023–Present", title: "B.Tech in Computer Engineering", sub: "Pursuing degree with focus on AI/ML and full-stack development" },
-    { year: "2020–2023", title: "Diploma in Computer Engineering", sub: "Graduated with distinction — strong foundation in CS fundamentals" },
-    { year: "2024", title: "ML Engineering Internship", sub: "Built and deployed production-grade machine learning models" },
+    { year: "2025–Present", title: "B.Tech in Computer Engineering", marks: "8.6 CGPA", sub: "At MKSSS's Cummins College of Engineering for Women, Pune" },
+    { year: "2022–2025", title: "Diploma in Computer Technology", marks: "91.77%", sub: "At Government Polytechnic Solapur" },
+    { year: "2021–2022", title: "Secondary Education (SSC)", marks: "90.40%", sub: "Shri Siddheshwar Bal Mandir Madhyamik Shala, Solapur" },
   ];
 
-  const highlights = ["Machine Learning & Deep Learning", "Full Stack Development", "NLP & Computer Vision", "Hackathons & Competitions"];
-
   return (
-    <section id="about" style={{ padding: "6rem 2rem", maxWidth: 1100, margin: "0 auto" }}>
-      <SectionHeading tag="Who I Am" title="About Me" />
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "3rem" }}>
-        <FadeUp>
-          <div>
-            <p style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.8, fontSize: 15, marginBottom: "1.5rem" }}>
-              I'm a Computer Engineering student with a deep passion for building AI-powered products and full-stack web applications. My journey spans from diploma to B.Tech, with hands-on experience in machine learning internships and competitive hackathons.
-            </p>
-            <p style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.8, fontSize: 15, marginBottom: "2rem" }}>
-              I thrive at the intersection of research and engineering — taking cutting-edge ML concepts and translating them into usable, real-world software.
-            </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-              {highlights.map((h) => (
-                <span key={h} style={{
-                  padding: "6px 14px", borderRadius: 20, fontSize: 12, fontWeight: 600,
-                  background: "rgba(59,130,246,0.12)", border: "1px solid rgba(59,130,246,0.3)",
-                  color: "#60A5FA",
-                }}>{h}</span>
-              ))}
-            </div>
-          </div>
-        </FadeUp>
-
-        {/* Timeline */}
-        <FadeUp delay={0.15}>
-          <div>
-            <h3 style={{ color: "#fff", fontWeight: 700, fontSize: 16, marginBottom: "1.5rem" }}>Education & Experience</h3>
-            <div style={{ position: "relative" }}>
-              <div style={{ position: "absolute", left: 16, top: 0, bottom: 0, width: 2, background: "linear-gradient(180deg,#3B82F6,#8B5CF6,transparent)" }} />
-              {timeline.map((item, i) => (
-                <div key={i} style={{ display: "flex", gap: "1.5rem", marginBottom: "1.8rem", paddingLeft: "1rem" }}>
-                  <div style={{
-                    width: 12, height: 12, borderRadius: "50%", flexShrink: 0, marginTop: 4,
-                    background: "linear-gradient(135deg,#3B82F6,#8B5CF6)",
-                    boxShadow: "0 0 10px rgba(59,130,246,0.5)",
-                    position: "relative", zIndex: 1,
-                  }} />
-                  <div>
-                    <span style={{ display: "block", fontSize: 11, color: "#3B82F6", fontWeight: 700, marginBottom: 2 }}>{item.year}</span>
-                    <span style={{ display: "block", fontSize: 14, color: "#fff", fontWeight: 600, marginBottom: 2 }}>{item.title}</span>
-                    <span style={{ fontSize: 13, color: "rgba(255,255,255,0.5)" }}>{item.sub}</span>
-                  </div>
+    <section id="education" style={{ padding: "3.7rem 1.25rem", maxWidth: 1300, margin: "0 auto", background: "rgba(255,255,255,0.01)", borderRadius: 28 }}>
+      <SectionHeading tag="Academic Background" title="Education" />
+      <div style={{ position: "relative", marginTop: "2rem", paddingLeft: "3rem" }}>
+        <div style={{ position: "absolute", left: 24, top: 0, bottom: 0, width: 2, background: "linear-gradient(180deg,#3B82F6,#8B5CF6,transparent)" }} />
+        {timeline.map((item, i) => (
+          <FadeUp key={item.year} delay={i * 0.07}>
+            <div style={{ position: "relative", display: "flex", gap: "1.5rem", marginBottom: "1rem", paddingLeft: "1.5rem" }}>
+              <div style={{ position: "absolute", left: -11, top: 10, width: 18, height: 18, borderRadius: "50%", background: "linear-gradient(135deg,#3B82F6,#8B5CF6)", border: "3px solid #0A0A0A", boxShadow: "0 0 14px rgba(59,130,246,0.35)" }} />
+              <div style={{ flex: 1, padding: "1.4rem 1.6rem", borderRadius: 24, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12, marginBottom: "0.75rem" }}>
+                  <span style={{ fontSize: "0.8rem", color: "#3B82F6", fontWeight: 700 }}>{item.year}</span>
+                  <span style={{ padding: "6px 12px", borderRadius: 999, background: "rgba(59,130,246,0.12)", color: "#93C5FD", fontSize: "0.8rem", fontWeight: 700 }}>{item.marks}</span>
                 </div>
-              ))}
+                <h3 style={{ fontSize: "1rem", fontWeight: 800, color: "#fff", marginBottom: 8 }}>{item.title}</h3>
+                <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.78)", lineHeight: 1.75, margin: 0 }}>{item.sub}</p>
+              </div>
             </div>
-          </div>
-        </FadeUp>
+          </FadeUp>
+        ))}
       </div>
     </section>
   );
@@ -542,8 +522,8 @@ function About() {
 
 function Skills() {
   return (
-    <section id="skills" style={{ padding: "6rem 2rem", background: "rgba(255,255,255,0.015)" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+    <section id="skills" style={{ padding: "6rem 1.25rem", background: "rgba(255,255,255,0.015)" }}>
+      <div style={{ maxWidth: 1300, margin: "0 auto" }}>
         <SectionHeading tag="What I Know" title="Skills" />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: "1.5rem" }}>
           {Object.entries(SKILLS).map(([cat, items], i) => {
@@ -575,13 +555,13 @@ function SkillCard({ category, items, from, to }) {
         transform: hov ? "translateY(-4px)" : "none",
       }}
     >
-      <h3 style={{ fontSize: 13, fontWeight: 700, marginBottom: "1rem", background: `linear-gradient(135deg,${from},${to})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+      <h3 style={{ fontSize: "81.25%", fontWeight: 700, marginBottom: "1rem", background: `linear-gradient(135deg,${from},${to})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
         {category}
       </h3>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
         {items.map((skill) => (
           <span key={skill} style={{
-            padding: "4px 10px", borderRadius: 6, fontSize: 12, fontWeight: 500,
+            padding: "4px 10px", borderRadius: 6, fontSize: "75%", fontWeight: 500,
             background: `${from}18`, border: `1px solid ${from}33`, color: "rgba(255,255,255,0.75)",
           }}>
             {skill}
@@ -598,7 +578,7 @@ function Projects() {
   const [expanded, setExpanded] = useState(null);
 
   return (
-    <section id="projects" style={{ padding: "6rem 2rem", maxWidth: 1100, margin: "0 auto" }}>
+    <section id="projects" style={{ padding: "6rem 1.25rem", maxWidth: 1300, margin: "0 auto" }}>
       <SectionHeading tag="What I've Built" title="Projects" />
       <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
         {PROJECTS.map((p, i) => (
@@ -634,21 +614,21 @@ function ProjectCard({ project: p, isExpanded, onToggle }) {
       <div style={{ padding: "1.5rem 2rem", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           <div style={{
-            width: 52, height: 52, borderRadius: 14, fontSize: 26,
+            width: 52, height: 52, borderRadius: 14, fontSize: "162.5%",
             display: "flex", alignItems: "center", justifyContent: "center",
             background: `${p.accent}20`, border: `1px solid ${p.accent}40`,
           }}>
             {p.emoji}
           </div>
           <div>
-            <h3 style={{ color: "#fff", fontWeight: 700, fontSize: 18, marginBottom: 2 }}>{p.name}</h3>
-            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 13 }}>{p.tagline}</p>
+            <h3 style={{ color: "#fff", fontWeight: 700, fontSize: "112.5%", marginBottom: 2 }}>{p.name}</h3>
+            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "81.25%" }}>{p.tagline}</p>
           </div>
         </div>
         <button
           onClick={onToggle}
           style={{
-            padding: "8px 20px", borderRadius: 8, fontWeight: 600, fontSize: 13,
+            padding: "8px 20px", borderRadius: 8, fontWeight: 600, fontSize: "81.25%",
             background: isExpanded ? `${p.accent}30` : "transparent",
             border: `1px solid ${p.accent}60`,
             color: p.accent, cursor: "pointer", transition: "all 0.2s",
@@ -670,12 +650,12 @@ function ProjectCard({ project: p, isExpanded, onToggle }) {
             width: "100%", height: 180, borderRadius: 12, marginBottom: "1.5rem", marginTop: "1.5rem",
             background: `linear-gradient(135deg,${p.accent}20,rgba(255,255,255,0.03))`,
             display: "flex", alignItems: "center", justifyContent: "center",
-            border: `1px solid ${p.accent}25`, fontSize: 60,
+            border: `1px solid ${p.accent}25`, fontSize: "clamp(2.2rem,5vw,4rem)",
           }}>
             {p.emoji}
           </div>
 
-          <p style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.7, marginBottom: "1.2rem", fontSize: 14 }}>
+          <p style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.7, marginBottom: "1.2rem", fontSize: "87.5%" }}>
             {p.description}
           </p>
 
@@ -685,11 +665,11 @@ function ProjectCard({ project: p, isExpanded, onToggle }) {
           </div>
 
           <div style={{ marginBottom: "1.5rem" }}>
-            <p style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>Tech Stack</p>
+            <p style={{ fontSize: "75%", color: "rgba(255,255,255,0.4)", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>Tech Stack</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
               {p.tech.map((t) => (
                 <span key={t} style={{
-                  padding: "4px 12px", borderRadius: 6, fontSize: 12, fontWeight: 600,
+                  padding: "4px 12px", borderRadius: 6, fontSize: "75%", fontWeight: 600,
                   background: `${p.accent}18`, border: `1px solid ${p.accent}40`, color: p.accent,
                 }}>{t}</span>
               ))}
@@ -709,8 +689,8 @@ function ProjectCard({ project: p, isExpanded, onToggle }) {
 function DetailBox({ label, text, accent }) {
   return (
     <div style={{ padding: "1rem", borderRadius: 10, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}>
-      <p style={{ fontSize: 12, color: accent, fontWeight: 700, marginBottom: 6 }}>{label}</p>
-      <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", lineHeight: 1.65 }}>{text}</p>
+      <p style={{ fontSize: "75%", color: accent, fontWeight: 700, marginBottom: 6 }}>{label}</p>
+      <p style={{ fontSize: "81.25%", color: "rgba(255,255,255,0.6)", lineHeight: 1.65 }}>{text}</p>
     </div>
   );
 }
@@ -719,8 +699,8 @@ function DetailBox({ label, text, accent }) {
 
 function Achievements() {
   return (
-    <section id="achievements" style={{ padding: "6rem 2rem", background: "rgba(255,255,255,0.015)" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+    <section id="achievements" style={{ padding: "6rem 1.25rem", background: "rgba(255,255,255,0.015)" }}>
+      <div style={{ maxWidth: 1300, margin: "0 auto" }}>
         <SectionHeading tag="Milestones" title="Achievements" />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "1.5rem" }}>
           {ACHIEVEMENTS.map((a, i) => (
@@ -748,10 +728,10 @@ function AchievementCard({ icon, title, subtitle, desc, color }) {
         transform: hov ? "translateY(-4px) scale(1.01)" : "none",
       }}
     >
-      <div style={{ fontSize: 36, marginBottom: "1rem" }}>{icon}</div>
-      <h3 style={{ color: "#fff", fontWeight: 700, fontSize: 16, marginBottom: 4 }}>{title}</h3>
-      <p style={{ fontSize: 12, color: color, fontWeight: 600, marginBottom: 10 }}>{subtitle}</p>
-      <p style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.65 }}>{desc}</p>
+      <div style={{ fontSize: "clamp(2.2rem,4vw,3rem)", marginBottom: "1rem" }}>{icon}</div>
+      <h3 style={{ color: "#fff", fontWeight: 700, fontSize: "100%", marginBottom: 4 }}>{title}</h3>
+      <p style={{ fontSize: "75%", color: color, fontWeight: 600, marginBottom: 10 }}>{subtitle}</p>
+      <p style={{ fontSize: "81.25%", color: "rgba(255,255,255,0.55)", lineHeight: 1.65 }}>{desc}</p>
     </div>
   );
 }
@@ -770,14 +750,14 @@ function Contact() {
   };
 
   const inputStyle = {
-    width: "100%", padding: "12px 14px", borderRadius: 10, fontSize: 14,
+    width: "100%", padding: "12px 14px", borderRadius: 10, fontSize: "87.5%",
     background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)",
     color: "#fff", outline: "none", boxSizing: "border-box",
     transition: "border-color 0.2s",
   };
 
   return (
-    <section id="contact" style={{ padding: "6rem 2rem", maxWidth: 1100, margin: "0 auto" }}>
+    <section id="contact" style={{ padding: "6rem 1.25rem", maxWidth: 1300, margin: "0 auto" }}>
       <SectionHeading tag="Let's Talk" title="Get In Touch" />
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "3rem" }}>
 
@@ -785,7 +765,7 @@ function Contact() {
         <FadeUp>
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
             <div>
-              <label style={{ display: "block", color: "rgba(255,255,255,0.5)", fontSize: 12, fontWeight: 600, marginBottom: 6 }}>NAME</label>
+              <label style={{ display: "block", color: "rgba(255,255,255,0.5)", fontSize: "75%", fontWeight: 600, marginBottom: 6 }}>NAME</label>
               <input
                 style={inputStyle}
                 value={form.name} placeholder="Your name"
@@ -795,7 +775,7 @@ function Contact() {
               />
             </div>
             <div>
-              <label style={{ display: "block", color: "rgba(255,255,255,0.5)", fontSize: 12, fontWeight: 600, marginBottom: 6 }}>EMAIL</label>
+              <label style={{ display: "block", color: "rgba(255,255,255,0.5)", fontSize: "75%", fontWeight: 600, marginBottom: 6 }}>EMAIL</label>
               <input
                 style={inputStyle} type="email"
                 value={form.email} placeholder="your@email.com"
@@ -805,7 +785,7 @@ function Contact() {
               />
             </div>
             <div>
-              <label style={{ display: "block", color: "rgba(255,255,255,0.5)", fontSize: 12, fontWeight: 600, marginBottom: 6 }}>MESSAGE</label>
+              <label style={{ display: "block", color: "rgba(255,255,255,0.5)", fontSize: "75%", fontWeight: 600, marginBottom: 6 }}>MESSAGE</label>
               <textarea
                 style={{ ...inputStyle, minHeight: 130, resize: "vertical" }}
                 value={form.message} placeholder="Tell me about your project..."
@@ -817,7 +797,7 @@ function Contact() {
             <button
               type="submit"
               style={{
-                padding: "12px 28px", borderRadius: 10, fontWeight: 700, fontSize: 14,
+                padding: "12px 28px", borderRadius: 10, fontWeight: 700, fontSize: "87.5%",
                 background: sent ? "linear-gradient(135deg,#10B981,#059669)" : "linear-gradient(135deg,#3B82F6,#8B5CF6)",
                 border: "none", color: "#fff", cursor: "pointer", transition: "all 0.3s",
                 boxShadow: "0 0 20px rgba(59,130,246,0.3)",
@@ -831,8 +811,8 @@ function Contact() {
         {/* Links */}
         <FadeUp delay={0.15}>
           <div>
-            <h3 style={{ color: "#fff", fontWeight: 700, marginBottom: "1.5rem", fontSize: 18 }}>Connect With Me</h3>
-            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: 14, lineHeight: 1.7, marginBottom: "2rem" }}>
+            <h3 style={{ color: "#fff", fontWeight: 700, marginBottom: "1.5rem", fontSize: "112.5%" }}>Connect With Me</h3>
+            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "87.5%", lineHeight: 1.7, marginBottom: "2rem" }}>
               I'm open to internships, full-time roles, collaborations, and interesting project discussions. Don't hesitate to reach out!
             </p>
             {[["💻","GitHub","github.com/anushkaapawar","#"],["💼","LinkedIn","linkedin.com/in/anushkaapawar","#"],["✉️","Email","anushkaapawar@email.com","mailto:#"]].map(([icon,label,val,href])=>(
@@ -841,10 +821,10 @@ function Contact() {
                 onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(59,130,246,0.4)";e.currentTarget.style.background="rgba(59,130,246,0.06)"}}
                 onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(255,255,255,0.07)";e.currentTarget.style.background="rgba(255,255,255,0.03)"}}
               >
-                <span style={{ fontSize: 22 }}>{icon}</span>
+                <span style={{ fontSize: "137.5%" }}>{icon}</span>
                 <div>
-                  <p style={{ color: "#fff", fontWeight: 600, fontSize: 14, margin: 0 }}>{label}</p>
-                  <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 12, margin: 0 }}>{val}</p>
+                  <p style={{ color: "#fff", fontWeight: 600, fontSize: "87.5%", margin: 0 }}>{label}</p>
+                  <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "75%", margin: 0 }}>{val}</p>
                 </div>
               </a>
             ))}
@@ -862,13 +842,13 @@ function Footer() {
     <footer style={{
       textAlign: "center", padding: "2.5rem 2rem",
       borderTop: "1px solid rgba(255,255,255,0.06)",
-      color: "rgba(255,255,255,0.35)", fontSize: 13,
+      color: "rgba(255,255,255,0.35)", fontSize: "81.25%",
     }}>
       <p>Made with ❤️ using Next.js & React — Anushkaa Pawar © 2025</p>
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         style={{
-          marginTop: 12, padding: "8px 20px", borderRadius: 8, fontSize: 12, fontWeight: 600,
+          marginTop: 12, padding: "8px 20px", borderRadius: 8, fontSize: "75%", fontWeight: 600,
           background: "rgba(59,130,246,0.15)", border: "1px solid rgba(59,130,246,0.3)",
           color: "#60A5FA", cursor: "pointer",
         }}
@@ -924,8 +904,8 @@ export default function App() {
       <CursorGlow />
       <Navbar activeSection={activeSection} />
       <main style={{ position: "relative", zIndex: 1 }}>
-        <Home />
-        <About />
+        <AboutHero />
+        <Education />
         <Skills />
         <Projects />
         <Achievements />
