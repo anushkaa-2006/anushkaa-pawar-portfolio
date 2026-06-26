@@ -130,14 +130,14 @@ const ACHIEVEMENTS = [
   {
     icon: "⛸️",
     title: "Roller Skating",
-    subtitle: "State-level Representative",
+    subtitle: "🌟State-level Representative",
     desc: "Represented Solapur district at the state level, consistently securing first place in district-level roller skating competitions through years of dedication, hard work and passion for the sport.",
     color: "#8B5CF6",
   },
   {
     icon: "🏏",
-    title: "🥈 Inter & Intra College",
-    subtitle: "Distinction in Diploma",
+    title: "Cricket Championships",
+    subtitle: "🥈 Intra-College • 🥉 Inter-College",
     desc: "Won Silver at Pentacle 2026 and Gold at Damini 2025–26 at CCOEW college, demonstrating teamwork, discipline, leadership, and excellence under competitive pressure.",
     color: "#10B981",
   },
