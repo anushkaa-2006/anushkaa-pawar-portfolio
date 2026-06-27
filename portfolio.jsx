@@ -387,8 +387,8 @@ function AboutHero() {
               </GlowBtn>
             </div>
             <div style={{ display: "flex", gap: "1rem" }}>
-              {[["GitHub","https://github.com/anushkaa-2006","💻"],["LinkedIn","http://linkedin.com/in/anushkaa3006/","💼"],["Email","mailto:anushkaapawar2006@gmail.com","✉️"]].map(([label,href,icon])=>(
-                <a key={label} href={href} style={{ display:"flex",alignItems:"center",gap:6, color:"rgba(255,255,255,0.5)", textDecoration:"none", fontSize:"81.25%", transition:"color 0.2s" }}
+              {[["GitHub","https://github.com/anushkaa-2006","💻"],["LinkedIn","http://linkedin.com/in/anushkaa3006/","💼"],["Email","https://mail.google.com/mail/?view=cm&fs=1&to=anushkaapawar2006@gmail.com","✉️"]].map(([label,href,icon])=>(
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" style={{ display:"flex",alignItems:"center",gap:6, color:"rgba(255,255,255,0.5)", textDecoration:"none", fontSize:"81.25%", transition:"color 0.2s" }}
                   onMouseEnter={e=>e.currentTarget.style.color="#3B82F6"} onMouseLeave={e=>e.currentTarget.style.color="rgba(255,255,255,0.5)"}>
                   {icon} {label}
                 </a>
@@ -745,15 +745,15 @@ function Contact() {
       <FadeUp>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: "1.5rem" }}>
           <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "87.5%", lineHeight: 1.7, maxWidth: 660 }}>
-            I'm open to internships, full-time roles, collaborations, and interesting project discussions. Don't hesitate to reach out!
+            I'm open to internships, part-time roles, collaborations, and interesting project discussions. Don't hesitate to reach out!
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: "1rem", width: "100%" }}>
             {[
               ["💻", "GitHub", "github.com/anushkaa-2006", "https://github.com/anushkaa-2006"],
               ["💼", "LinkedIn", "linkedin.com/in/anushkaa3006/", "http://linkedin.com/in/anushkaa3006/"],
-              ["✉️", "Email", "anushkaapawar2006@gmail.com", "mailto:anushkaapawar2006@gmail.com"]
+              [ "✉️", "Email", "anushkaapawar2006@gmail.com", "https://mail.google.com/mail/?view=cm&fs=1&to=anushkaapawar2006@gmail.com"]
             ].map(([icon, label, val, href]) => (
-              <a key={label} href={href}
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer"
                 style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem", padding: "1rem 1.1rem", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", textDecoration: "none", transition: "all 0.2s" }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(59,130,246,0.4)"; e.currentTarget.style.background = "rgba(59,130,246,0.06)"; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)"; e.currentTarget.style.background = "rgba(255,255,255,0.03)"; }}
