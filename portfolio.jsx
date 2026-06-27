@@ -1,4 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import lexrobertaResult from "./src/project_images/3_result.png";
+import lexrobertaArchi from "./src/project_images/3_archi.png";
+import inventraReport from "./src/project_images/2_report.png";
+import inventraProducts from "./src/project_images/2_products.png";
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
@@ -49,50 +53,46 @@ const PROJECTS = [
   {
     id: 2,
     name: "Diploma-Dost",
-    tagline: "Full-stack admission guidance platform for diploma students",
-    description:
-      "Full-stack admission guidance platform that helps diploma students navigate college admissions with data-driven insights.",
+    tagline: "Contributer : Full-stack admission guidance platform for diploma students",
     problem:
       "Students struggle to compare colleges, analyze cutoffs, and make informed admission decisions due to fragmented information.",
     solution:
       "Developed a centralized platform with college prediction, personalized shortlisting, cutoff analysis, and step-by-step admission guidance.",
     tech: ["Next.js", "React", "Supabase", "Tailwind CSS"],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/anushkaa-2006/Diploma-Dost",
+    demo: "https://diploma-dost.vercel.app/",
     emoji: "🎓",
     accent: "#8B5CF6",
   },
   {
     id: 3,
     name: "LexRoBERTa",
-    tagline: "Hybrid NLP model for semantic extractive text summarization",
-    description:
-      "Hybrid NLP model combining LexRank with RoBERTa embeddings for semantic extractive text summarization.",
+    tagline: "Hybrid extractive text summarization using LexRank, RoBERTa, and MMR.",
     problem:
-      "Traditional extractive summarization methods fail to capture semantic context, producing incoherent summaries.",
+      "Long documents such as research papers, news articles, and reports require significant time to read. Traditional extractive summarization techniques often fail to capture semantic context and produce repetitive summaries.",
     solution:
-      "Integrated LexRank graph ranking with contextual RoBERTa sentence embeddings, evaluated with ROUGE, BLEU, METEOR, and BERTScore metrics.",
-    tech: ["Python", "RoBERTa", "LexRank", "PyTorch", "Transformers"],
-    github: "#",
+      "Designed a hybrid NLP pipeline that combines LexRank for sentence ranking, RoBERTa for contextual sentence embeddings, and MMR for redundancy reduction, producing concise, meaningful, and semantically rich summaries.",
+    tech: ["Python", "RoBERTa", "LexRank", "MMR", "Transformers", "PyTorch", "Hugging Face", "NLTK", "NumPy", "Pandas"],    
+    github: "https://github.com/anushkaa-2006/LexRoBERTa-Hybrid-Extractive-Text-Summarization.git",
     demo: null,
     emoji: "📄",
     accent: "#06B6D4",
+    images: [lexrobertaResult, lexrobertaArchi],
   },
   {
     id: 4,
     name: "Inventra",
     tagline: "Web-based inventory management with sales and profit tracking",
-    description:
-      "Inventory Management System for managing products, inventory, sales, and profit for small businesses.",
     problem:
       "Small businesses struggle with manual inventory management, leading to stock errors and poor financial visibility.",
     solution:
       "Developed a web-based platform with authentication, CRUD operations, sales reports, and profit tracking dashboards.",
     tech: ["HTML", "CSS", "PHP", "MySQL"],
-    github: "#",
+    github: "https://github.com/anushkaa-2006/Inventra-Inventory-Management-System.git",
     demo: null,
     emoji: "📦",
     accent: "#10B981",
+    images: [inventraProducts,inventraReport],
   },
   {
     id: 5,
@@ -645,15 +645,58 @@ function ProjectCard({ project: p, isExpanded, onToggle }) {
         transition: "max-height 0.5s cubic-bezier(0.4,0,0.2,1)",
       }}>
         <div style={{ padding: "0 2rem 2rem", borderTop: `1px solid rgba(255,255,255,0.06)` }}>
-          {/* Screenshot placeholder */}
-          <div style={{
-            width: "100%", height: 180, borderRadius: 12, marginBottom: "1.5rem", marginTop: "1.5rem",
-            background: `linear-gradient(135deg,${p.accent}20,rgba(255,255,255,0.03))`,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            border: `1px solid ${p.accent}25`, fontSize: "clamp(2.2rem,5vw,4rem)",
-          }}>
-            {p.emoji}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: "1rem", marginTop: "1.5rem", marginBottom: "1.5rem" }}>
+            {[0, 1].map((index) => {
+              const imageSrc = p.images?.[index];
+              return (
+                <div
+  key={index}
+  style={{
+    aspectRatio: "16 / 9",
+    borderRadius: 18,
+    overflow: "hidden",
+    border: "1px solid rgba(255,255,255,0.08)",
+    background: imageSrc ? "#111827" : "rgba(255,255,255,0.04)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  {imageSrc ? (
+    <img
+      src={imageSrc}
+      alt={`${p.name} screenshot ${index + 1}`}
+      style={{
+        maxWidth: "100%",
+        maxHeight: "100%",
+        width: "auto",
+        height: "auto",
+        objectFit: "contain",
+        display: "block",
+      }}
+    />
+  ) : (
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        padding: "1rem",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        color: "rgba(255,255,255,0.45)",
+        fontSize: "0.95rem",
+        textAlign: "center",
+      }}
+    >
+      Image space available
+    </div>
+  )}
+</div>
+              );
+            })}
           </div>
+
 
           <p style={{ color: "rgba(255,255,255,0.65)", lineHeight: 1.7, marginBottom: "1.2rem", fontSize: "87.5%" }}>
             {p.description}
