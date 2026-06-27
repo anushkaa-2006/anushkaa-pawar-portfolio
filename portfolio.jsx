@@ -368,7 +368,7 @@ function AboutHero() {
           </FadeUp>
           <FadeUp delay={0.4}>
             <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "93.75%", lineHeight: 1.7, marginBottom: "1rem", maxWidth: 840 }}>
-             Driven by curiosity to build meaningful AI and Machine Learning solutions that solve real-world problems.
+             Driven by curiosity to build meaningful AI and ML solutions that solve real-world problems.
             </p>
             <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "93.75%", lineHeight: 1.7, marginBottom: "1rem", maxWidth: 840 }}>
              I am a Computer Engineering student with a strong interest in Artificial Intelligence, Machine Learning, and Software Development. I have worked on projects involving web applications, databases, and intelligent systems, with a focus on designing scalable, efficient, and user-centric software solutions.
@@ -739,98 +739,35 @@ function AchievementCard({ icon, title, subtitle, desc, color }) {
 // ─── CONTACT ─────────────────────────────────────────────────────────────────
 
 function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
-    setForm({ name: "", email: "", message: "" });
-  };
-
-  const inputStyle = {
-    width: "100%", padding: "12px 14px", borderRadius: 10, fontSize: "87.5%",
-    background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)",
-    color: "#fff", outline: "none", boxSizing: "border-box",
-    transition: "border-color 0.2s",
-  };
-
   return (
-    <section id="contact" style={{ padding: "6rem 1.25rem", maxWidth: 1300, margin: "0 auto" }}>
+    <section id="contact" style={{ padding: "6rem 1.25rem", maxWidth: 900, margin: "0 auto" }}>
       <SectionHeading tag="Let's Talk" title="Get In Touch" />
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "3rem" }}>
-
-        {/* Form */}
-        <FadeUp>
-          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            <div>
-              <label style={{ display: "block", color: "rgba(255,255,255,0.5)", fontSize: "75%", fontWeight: 600, marginBottom: 6 }}>NAME</label>
-              <input
-                style={inputStyle}
-                value={form.name} placeholder="Your name"
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                onFocus={e => e.target.style.borderColor = "#3B82F6"}
-                onBlur={e => e.target.style.borderColor = "rgba(255,255,255,0.1)"}
-              />
-            </div>
-            <div>
-              <label style={{ display: "block", color: "rgba(255,255,255,0.5)", fontSize: "75%", fontWeight: 600, marginBottom: 6 }}>EMAIL</label>
-              <input
-                style={inputStyle} type="email"
-                value={form.email} placeholder="your@email.com"
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                onFocus={e => e.target.style.borderColor = "#3B82F6"}
-                onBlur={e => e.target.style.borderColor = "rgba(255,255,255,0.1)"}
-              />
-            </div>
-            <div>
-              <label style={{ display: "block", color: "rgba(255,255,255,0.5)", fontSize: "75%", fontWeight: 600, marginBottom: 6 }}>MESSAGE</label>
-              <textarea
-                style={{ ...inputStyle, minHeight: 130, resize: "vertical" }}
-                value={form.message} placeholder="Tell me about your project..."
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                onFocus={e => e.target.style.borderColor = "#3B82F6"}
-                onBlur={e => e.target.style.borderColor = "rgba(255,255,255,0.1)"}
-              />
-            </div>
-            <button
-              type="submit"
-              style={{
-                padding: "12px 28px", borderRadius: 10, fontWeight: 700, fontSize: "87.5%",
-                background: sent ? "linear-gradient(135deg,#10B981,#059669)" : "linear-gradient(135deg,#3B82F6,#8B5CF6)",
-                border: "none", color: "#fff", cursor: "pointer", transition: "all 0.3s",
-                boxShadow: "0 0 20px rgba(59,130,246,0.3)",
-              }}
-            >
-              {sent ? "✓ Message Sent!" : "Send Message →"}
-            </button>
-          </form>
-        </FadeUp>
-
-        {/* Links */}
-        <FadeUp delay={0.15}>
-          <div>
-            <h3 style={{ color: "#fff", fontWeight: 700, marginBottom: "1.5rem", fontSize: "112.5%" }}>Connect With Me</h3>
-            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "87.5%", lineHeight: 1.7, marginBottom: "2rem" }}>
-              I'm open to internships, full-time roles, collaborations, and interesting project discussions. Don't hesitate to reach out!
-            </p>
-            {[["💻","GitHub","github.com/anushkaapawar","#"],["💼","LinkedIn","linkedin.com/in/anushkaapawar","#"],["✉️","Email","anushkaapawar@email.com","mailto:#"]].map(([icon,label,val,href])=>(
+      <FadeUp>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: "1.5rem" }}>
+          <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "87.5%", lineHeight: 1.7, maxWidth: 660 }}>
+            I'm open to internships, full-time roles, collaborations, and interesting project discussions. Don't hesitate to reach out!
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: "1rem", width: "100%" }}>
+            {[
+              ["💻", "GitHub", "github.com/anushkaa-2006", "https://github.com/anushkaa-2006"],
+              ["💼", "LinkedIn", "linkedin.com/in/anushkaa3006/", "http://linkedin.com/in/anushkaa3006/"],
+              ["✉️", "Email", "anushkaapawar2006@gmail.com", "mailto:anushkaapawar2006@gmail.com"]
+            ].map(([icon, label, val, href]) => (
               <a key={label} href={href}
-                style={{ display:"flex", alignItems:"center", gap:"1rem", padding:"1rem", borderRadius:12, marginBottom:"0.75rem", background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.07)", textDecoration:"none", transition:"all 0.2s" }}
-                onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(59,130,246,0.4)";e.currentTarget.style.background="rgba(59,130,246,0.06)"}}
-                onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(255,255,255,0.07)";e.currentTarget.style.background="rgba(255,255,255,0.03)"}}
+                style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem", padding: "1rem 1.1rem", borderRadius: 12, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", textDecoration: "none", transition: "all 0.2s" }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(59,130,246,0.4)"; e.currentTarget.style.background = "rgba(59,130,246,0.06)"; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)"; e.currentTarget.style.background = "rgba(255,255,255,0.03)"; }}
               >
                 <span style={{ fontSize: "137.5%" }}>{icon}</span>
-                <div>
+                <div style={{ textAlign: "left" }}>
                   <p style={{ color: "#fff", fontWeight: 600, fontSize: "87.5%", margin: 0 }}>{label}</p>
                   <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "75%", margin: 0 }}>{val}</p>
                 </div>
               </a>
             ))}
           </div>
-        </FadeUp>
-      </div>
+        </div>
+      </FadeUp>
     </section>
   );
 }
