@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
-const NAV_LINKS = ["About", "Education", "Skills", "Projects", "Achievements", "Contact"];
+const NAV_LINKS = ["About", "Education", "Skills", "Projects", "Experience", "Achievements", "Contact"];
 
 const TYPEWRITER_TEXTS = [
   "Web Developer",
@@ -736,6 +736,58 @@ function AchievementCard({ icon, title, subtitle, desc, color }) {
   );
 }
 
+
+function Experience() {
+  const timeline = [
+    {
+      year: "June 2024- July 2024",
+      role: "Trainee - Web developer",
+      company: "At- Wachstum Venture Private Limited",
+      
+      bullets: [
+        "Contributed to the development of GoTechJob, a web platform for technical interview and career preparation.",
+        "Developed responsive UI components using HTML, CSS, and JavaScript focused on usability and performance.",
+        "Collaborated with a development team while gaining hands-on experience in real-world web development practices.",
+      ],
+    },
+  ];
+
+  return (
+    <section id="experience" style={{ padding: "3.7rem 1.25rem", maxWidth: 1300, margin: "0 auto", background: "rgba(255,255,255,0.01)", borderRadius: 28 }}>
+      <SectionHeading tag="Where I've Worked" title="Experience" />
+      <div style={{ position: "relative", marginTop: "2rem", paddingLeft: "3rem" }}>
+        <div style={{ position: "absolute", left: 24, top: 0, bottom: 0, width: 2, background: "linear-gradient(180deg,#3B82F6,#8B5CF6,transparent)" }} />
+        {timeline.map((item, i) => (
+          <FadeUp key={i} delay={i * 0.07}>
+            <div style={{ position: "relative", display: "flex", gap: "1.5rem", marginBottom: "1rem", paddingLeft: "1.5rem" }}>
+              <div style={{ position: "absolute", left: -11, top: 10, width: 18, height: 18, borderRadius: "50%", background: "linear-gradient(135deg,#3B82F6,#8B5CF6)", border: "3px solid #0A0A0A", boxShadow: "0 0 14px rgba(59,130,246,0.35)" }} />
+              <div style={{ flex: 1, padding: "1.4rem 1.6rem", borderRadius: 24, background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12, marginBottom: "0.5rem" }}>
+                  <div>
+                    <h3 style={{ fontSize: "1rem", fontWeight: 800, color: "#3B82F6", margin: "0 0 6px 0" }}>{item.role || item.title}</h3>
+                    <p style={{ fontSize: "0.98rem", color: "#fff", fontWeight: 700, margin: 0 }}>{item.company || item.marks || item.sub}</p>
+                  </div>
+                  <div style={{ marginLeft: 12 }}>
+                    <span style={{ display: "inline-block", padding: "8px 14px", borderRadius: 999, background: "rgba(59,130,246,0.12)", color: "#93C5FD", fontWeight: 700, fontSize: "0.85rem" }}>{item.year}</span>
+                  </div>
+                </div>
+                <div style={{ marginTop: 12 }}>
+                  <ul style={{ margin: 0, paddingLeft: 18 }}>
+                    {item.bullets.map((b, idx) => (
+                      <li key={idx} style={{ color: "rgba(255,255,255,0.78)", marginBottom: 8, fontSize: "0.95rem", lineHeight: 1.6 }}>{b}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </FadeUp>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+
 // ─── CONTACT ─────────────────────────────────────────────────────────────────
 
 function Contact() {
@@ -845,6 +897,7 @@ export default function App() {
         <Education />
         <Skills />
         <Projects />
+        <Experience />
         <Achievements />
         <Contact />
       </main>
